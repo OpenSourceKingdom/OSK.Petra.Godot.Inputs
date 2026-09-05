@@ -1,0 +1,42 @@
+﻿<Project Sdk="Godot.NET.Sdk/4.4.0">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<LangVersion>12</LangVersion>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+
+		<Description>Provides an implementation for OSK.Inputs to receive and process game input in the Godot game engine. Utilizes .NET dependency injection for input processing</Description>
+		<PackageTags>OpenSourceKingdom, OpenSource, Petra, Game, Framework, Suite, Tool, Input, Process, Keyboard, Mouse, Controller, Xbox, Dual, Shock, Mobile, Godot</PackageTags>
+		<Title>OSK.Petra.Godot.Inputs</Title>
+		<Authors>BlankDev117</Authors>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/OpenSourceKingdom/OSK.Petra.Godot.Inputs</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+		<PetraInputsVersion>0.3.0</PetraInputsVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+	
+	<!-- Required Godot injection -->
+	<ItemGroup>
+		<Compile Update="**\*.cs" Pack="true" PackagePath="godot\%(RecursiveDir)%(Filename)%(Extension)" />
+		<None Include="..\OSK.Petra.Godot.targets" Pack="true" PackagePath="buildTransitive\$(MSBuildProjectName).targets" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="OSK.Extensions.Petra.Godot" Version="0.8.0" />
+		<PackageReference Include="OSK.Extensions.Petra.Godot.Roslyn" Version="0.8.0" />
+		<PackageReference Include="OSK.Extensions.Petra.Inputs.Configuration" Version="$(PetraInputsVersion)" />
+		<PackageReference Include="OSK.Extensions.Petra.Inputs.Devices" Version="$(PetraInputsVersion)" />
+		<PackageReference Include="OSK.Operations.Workflows" Version="1.0.0" />
+		<PackageReference Include="OSK.Petra.DependencyInjection" Version="0.3.0" />
+		<PackageReference Include="OSK.Petra.Godot.Framework.Build" Version="0.1.1" />
+		<PackageReference Include="OSK.Petra.Godot.Primitives" Version="0.3.2" />
+		<PackageReference Include="OSK.Petra.Inputs" Version="$(PetraInputsVersion)" />
+	</ItemGroup>
+</Project>
